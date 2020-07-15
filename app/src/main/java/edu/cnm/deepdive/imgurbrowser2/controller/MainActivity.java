@@ -1,9 +1,10 @@
-package edu.cnm.deepdive.imgurbrowser2;
+package edu.cnm.deepdive.imgurbrowser2.controller;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import edu.cnm.deepdive.imgurbrowser2.R;
 import edu.cnm.deepdive.imgurbrowser2.model.Gallery.Search;
 import edu.cnm.deepdive.imgurbrowser2.viewmodel.ListViewModel;
 

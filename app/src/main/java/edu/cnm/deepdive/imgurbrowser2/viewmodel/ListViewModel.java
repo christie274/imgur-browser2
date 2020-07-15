@@ -50,15 +50,9 @@ public class ListViewModel extends AndroidViewModel implements LifecycleObserver
 
   }
 
-  @OnLifecycleEvent(Event.ON_STOP)
-  private void clearPending() {
-    pending.clear();
-
-  }
-
   @Override
   protected void onCleared() {
     super.onCleared();
-    clearPending();
+    pending.clear();
   }
 }
