@@ -16,7 +16,7 @@ import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 public interface ImgurService {
-  @GET("search/?q=cute")
+  @GET("gallery/search")
   Single<Gallery.Search> getSearchResult(
       @Header("Authorization") String authHeader, @Query("q") String subject);
 

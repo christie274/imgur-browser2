@@ -16,9 +16,9 @@ import io.reactivex.schedulers.Schedulers;
 
 public class ListViewModel extends AndroidViewModel implements LifecycleObserver {
 
-  private MutableLiveData<Gallery.Search> searchResult;
-  private MutableLiveData<Throwable> throwable;
-  ImgurService imgurService;
+  private final MutableLiveData<Gallery.Search> searchResult;
+  private final MutableLiveData<Throwable> throwable;
+  private final ImgurService imgurService;
   private final CompositeDisposable pending;
 
   public ListViewModel(@NonNull Application application) {
@@ -40,10 +40,12 @@ public class ListViewModel extends AndroidViewModel implements LifecycleObserver
 
   public void loadData() {
     pending.add(
-        imgurService.getSearchResult(BuildConfig.CLIENT_ID, "cute")
+        imgurService.getSearchResult(BuildConfig.CLIENT_ID, "cars")
             .subscribeOn(Schedulers.io())
             .subscribe(
-                searchResult -> this.searchResult.postValue(searchResult),
+                searchResult -> {
+                  this.searchResult.postValue(searchResult);
+                },
                 throwable -> this.throwable.postValue(throwable.getCause())
             )
     );
